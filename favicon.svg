@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="MizoDSP">
+  <rect width="64" height="64" rx="14" fill="#101012" />
+  <rect x="0.5" y="0.5" width="63" height="63" rx="13.5" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1" />
+  <g id="mizodsp-bars">
+    <rect x="9.00" y="13.17" width="7.94" height="37.66" rx="3.97" fill="#F5EEDE" />
+    <rect x="18.49" y="15.57" width="7.94" height="22.00" rx="3.97" fill="#85B2CF" />
+    <rect x="28.03" y="13.17" width="7.94" height="37.66" rx="3.97" fill="#17597C" />
+    <rect x="37.57" y="13.17" width="7.94" height="37.66" rx="3.97" fill="#F5EEDE" />
+    <rect x="47.06" y="15.57" width="7.94" height="32.97" rx="3.97" fill="#17597C" />
+  </g>
+</svg>
