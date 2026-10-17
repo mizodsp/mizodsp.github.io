@@ -1280,6 +1280,129 @@ p {
     padding: 14px 0;
     border-bottom: 1px solid var(--line);
   }
+
+  /* Mobile optimization for Homepage showcase */
+  .showcase {
+    padding: 8px 8px 12px;
+    margin-top: 30px;
+    border-radius: 8px;
+  }
+
+  .showcase__caption {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 4px;
+    margin-top: 10px;
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+  }
+
+  .showcase__caption span {
+    display: block;
+  }
+
+  /* Mobile optimization for Product page stage & caption */
+  .product__stage,
+  body.page-dark .product__stage {
+    padding: 8px 8px 12px;
+    border-radius: 8px;
+  }
+
+  .product__caption {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 8px;
+    margin-top: 10px;
+    padding-top: 10px;
+  }
+
+  .stage-play-btn {
+    padding: 5px 12px;
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+    gap: 7px;
+  }
+
+  .stage-play-btn__icon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .stage-play-btn__icon svg {
+    width: 10px;
+    height: 10px;
+  }
+
+  .stage-play-btn__text {
+    font-size: 0.68rem;
+    letter-spacing: 0.06em;
+  }
+
+  .product__caption-text {
+    font-size: 0.62rem;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --pad: 14px;
+  }
+
+  .showcase {
+    padding: 6px 6px 10px;
+    margin-top: 22px;
+    border-radius: 6px;
+  }
+
+  .showcase__caption {
+    font-size: 0.56rem;
+    letter-spacing: 0.05em;
+    gap: 3px;
+    margin-top: 8px;
+  }
+
+  .product__stage,
+  body.page-dark .product__stage {
+    padding: 6px 6px 10px;
+    border-radius: 6px;
+  }
+
+  .product__caption {
+    gap: 6px;
+    margin-top: 8px;
+    padding-top: 8px;
+  }
+
+  .stage-play-btn {
+    padding: 4px 10px;
+    font-size: 0.62rem;
+    gap: 6px;
+  }
+
+  .stage-play-btn__icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .stage-play-btn__icon svg {
+    width: 8px;
+    height: 8px;
+  }
+
+  .stage-play-btn__text {
+    font-size: 0.62rem;
+  }
+
+  .product__caption-text {
+    font-size: 0.56rem;
+    letter-spacing: 0.05em;
+  }
 }
 
 @media (max-width: 520px) {
