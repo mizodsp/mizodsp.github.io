@@ -148,6 +148,17 @@ p {
   background: var(--accent);
 }
 
+.btn--accent {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.btn--accent:hover {
+  background: #c59132;
+  color: #ffffff;
+}
+
 .btn--ghost {
   border-color: var(--line);
   color: var(--ink);
@@ -261,6 +272,17 @@ p {
   display: flex;
   align-items: center;
   gap: 14px;
+}
+
+.site-header__cta .btn {
+  background: var(--accent);
+  color: #ffffff;
+  border-color: transparent;
+}
+
+.site-header__cta .btn:hover {
+  background: #c59132;
+  color: #ffffff;
 }
 
 .nav-toggle {
