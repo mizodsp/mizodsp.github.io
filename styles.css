@@ -13,9 +13,9 @@
   --line: #e7e6e1;
   --line-dark: #26262a;
 
-  --accent: #ea580c;
-  --accent-hover: #f97316;
-  --accent-soft: rgba(234, 88, 12, 0.16);
+  --accent: #b07d24;
+  --accent-hover: #c59132;
+  --accent-soft: rgba(176, 125, 36, 0.2);
   --accent-ink: #ffffff;
 
   --radius: 4px;
@@ -152,17 +152,17 @@ p {
 }
 
 .btn--accent {
-  background: #ea580c !important;
+  background: #b07d24 !important;
   color: #ffffff !important;
-  border: 1px solid #ea580c !important;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  border: 1px solid #b07d24 !important;
+  box-shadow: 0 4px 14px rgba(176, 125, 36, 0.35);
 }
 
 .btn--accent:hover {
-  background: #f97316 !important;
-  border-color: #f97316 !important;
+  background: #c59132 !important;
+  border-color: #c59132 !important;
   color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.55);
+  box-shadow: 0 6px 20px rgba(176, 125, 36, 0.55);
 }
 
 .btn--ghost {
@@ -281,19 +281,19 @@ p {
 }
 
 .site-header__cta .btn {
-  background: #ea580c !important;
+  background: #b07d24 !important;
   color: #ffffff !important;
-  border: 1px solid #ea580c !important;
+  border: 1px solid #b07d24 !important;
   border-radius: var(--radius);
   font-weight: 600;
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
+  box-shadow: 0 4px 14px rgba(176, 125, 36, 0.4);
 }
 
 .site-header__cta .btn:hover {
-  background: #f97316 !important;
-  border-color: #f97316 !important;
+  background: #c59132 !important;
+  border-color: #c59132 !important;
   color: #ffffff !important;
-  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.6);
+  box-shadow: 0 6px 20px rgba(176, 125, 36, 0.6);
   transform: translateY(-1px);
 }
 
@@ -1265,9 +1265,9 @@ p {
     display: inline-flex !important;
     padding: 6px 13px !important;
     font-size: 0.78rem !important;
-    background: #ea580c !important;
+    background: #b07d24 !important;
     color: #ffffff !important;
-    border: 1px solid #ea580c !important;
+    border: 1px solid #b07d24 !important;
     white-space: nowrap;
     border-radius: var(--radius);
   }
@@ -1291,8 +1291,8 @@ p {
   .nav-toggle:hover,
   .nav-toggle:focus-visible,
   .nav-toggle[aria-expanded="true"] {
-    background: rgba(234, 88, 12, 0.25);
-    border-color: #ea580c;
+    background: rgba(176, 125, 36, 0.25);
+    border-color: #b07d24;
     color: #ffffff !important;
   }
 
@@ -1327,7 +1327,7 @@ p {
   }
 
   .nav--open a:hover {
-    color: #ea580c !important;
+    color: #b07d24 !important;
     padding-left: 6px;
   }
 
