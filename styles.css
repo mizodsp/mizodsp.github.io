@@ -13,8 +13,9 @@
   --line: #e7e6e1;
   --line-dark: #26262a;
 
-  --accent: #b07d24;
-  --accent-soft: #f3e9d5;
+  --accent: #ea580c;
+  --accent-hover: #f97316;
+  --accent-soft: rgba(234, 88, 12, 0.16);
   --accent-ink: #ffffff;
 
   --radius: 4px;
@@ -37,10 +38,12 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
+  overflow-x: hidden;
   background: var(--bg);
   color: var(--ink);
   font-family: var(--font);
@@ -149,14 +152,17 @@ p {
 }
 
 .btn--accent {
-  background: var(--accent);
-  color: #ffffff;
-  border-color: transparent;
+  background: #ea580c !important;
+  color: #ffffff !important;
+  border: 1px solid #ea580c !important;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
 }
 
 .btn--accent:hover {
-  background: #c59132;
-  color: #ffffff;
+  background: #f97316 !important;
+  border-color: #f97316 !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.55);
 }
 
 .btn--ghost {
@@ -275,14 +281,20 @@ p {
 }
 
 .site-header__cta .btn {
-  background: var(--accent);
-  color: #ffffff;
-  border-color: transparent;
+  background: #ea580c !important;
+  color: #ffffff !important;
+  border: 1px solid #ea580c !important;
+  border-radius: var(--radius);
+  font-weight: 600;
+  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.4);
 }
 
 .site-header__cta .btn:hover {
-  background: #c59132;
-  color: #ffffff;
+  background: #f97316 !important;
+  border-color: #f97316 !important;
+  color: #ffffff !important;
+  box-shadow: 0 6px 20px rgba(234, 88, 12, 0.6);
+  transform: translateY(-1px);
 }
 
 .nav-toggle {
@@ -1241,147 +1253,162 @@ p {
 }
 
 @media (max-width: 720px) {
-  .nav,
-  .site-header__cta .btn {
+  .nav {
     display: none;
+  }
+
+  .site-header__cta {
+    gap: 10px;
+  }
+
+  .site-header__cta .btn {
+    display: inline-flex !important;
+    padding: 6px 13px !important;
+    font-size: 0.78rem !important;
+    background: #ea580c !important;
+    color: #ffffff !important;
+    border: 1px solid #ea580c !important;
+    white-space: nowrap;
+    border-radius: var(--radius);
   }
 
   .nav-toggle {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: none;
-    border: 1px solid var(--line);
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.28);
     border-radius: var(--radius);
-    padding: 8px 14px;
+    padding: 7px 14px;
     font: inherit;
     font-size: 0.82rem;
     font-weight: 600;
-    color: var(--ink);
+    color: #ffffff !important;
     cursor: pointer;
+    transition: all 0.2s var(--ease);
+  }
+
+  .nav-toggle:hover,
+  .nav-toggle:focus-visible,
+  .nav-toggle[aria-expanded="true"] {
+    background: rgba(234, 88, 12, 0.25);
+    border-color: #ea580c;
+    color: #ffffff !important;
   }
 
   .nav--open {
-    display: flex;
+    display: flex !important;
     position: absolute;
-    top: 68px;
+    top: 100%;
     left: 0;
     right: 0;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: stretch;
     gap: 0;
-    background: #fff;
-    border-bottom: 1px solid var(--line);
-    padding: 8px var(--pad) 20px;
+    background: #0d0d12 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 24px 48px rgba(0, 0, 0, 0.95);
+    padding: 10px var(--pad) 24px !important;
+    z-index: 100;
   }
 
   .nav--open a {
     width: 100%;
     padding: 14px 0;
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    font-size: 1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    text-decoration: none;
+    transition: color 0.2s var(--ease), padding-left 0.2s var(--ease);
   }
 
-  /* Mobile optimization for Homepage showcase */
-  .showcase {
-    padding: 8px 8px 12px;
-    margin-top: 30px;
+  .nav--open a:hover {
+    color: #ea580c !important;
+    padding-left: 6px;
+  }
+
+  .nav--open a:last-child {
+    border-bottom: none !important;
+  }
+
+  /* Maximized mobile scaling for Homepage showcase to fit screen */
+  .hero .showcase {
+    margin-left: -12px;
+    margin-right: -12px;
+    width: calc(100% + 24px);
+    max-width: calc(100% + 24px);
+    padding: 5px 3px 8px;
+    margin-top: 24px;
     border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .showcase__img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain;
+    border-radius: 4px;
   }
 
   .showcase__caption {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 4px;
-    margin-top: 10px;
-    font-size: 0.62rem;
-    letter-spacing: 0.08em;
-    line-height: 1.4;
+    gap: 3px;
+    margin-top: 8px;
+    font-size: 0.58rem;
+    letter-spacing: 0.06em;
+    line-height: 1.35;
+    padding: 0 4px;
   }
 
   .showcase__caption span {
     display: block;
   }
 
-  /* Mobile optimization for Product page stage & caption */
+  /* Maximized mobile scaling for Product page stage & caption to fit screen */
   .product__stage,
   body.page-dark .product__stage {
-    padding: 8px 8px 12px;
+    margin-left: -12px;
+    margin-right: -12px;
+    width: calc(100% + 24px);
+    max-width: calc(100% + 24px);
+    padding: 5px 3px 8px;
     border-radius: 8px;
+    box-sizing: border-box;
+  }
+
+  .product__render-box,
+  .product__render-img {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    display: block !important;
+    object-fit: contain;
+    border-radius: 4px;
   }
 
   .product__caption {
     flex-direction: column;
     align-items: center;
     text-align: center;
-    gap: 8px;
-    margin-top: 10px;
-    padding-top: 10px;
-  }
-
-  .stage-play-btn {
-    padding: 5px 12px;
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-    gap: 7px;
-  }
-
-  .stage-play-btn__icon {
-    width: 18px;
-    height: 18px;
-  }
-
-  .stage-play-btn__icon svg {
-    width: 10px;
-    height: 10px;
-  }
-
-  .stage-play-btn__text {
-    font-size: 0.68rem;
-    letter-spacing: 0.06em;
-  }
-
-  .product__caption-text {
-    font-size: 0.62rem;
-    letter-spacing: 0.06em;
-    line-height: 1.35;
-    text-align: center;
-  }
-}
-
-@media (max-width: 480px) {
-  :root {
-    --pad: 14px;
-  }
-
-  .showcase {
-    padding: 6px 6px 10px;
-    margin-top: 22px;
-    border-radius: 6px;
-  }
-
-  .showcase__caption {
-    font-size: 0.56rem;
-    letter-spacing: 0.05em;
-    gap: 3px;
-    margin-top: 8px;
-  }
-
-  .product__stage,
-  body.page-dark .product__stage {
-    padding: 6px 6px 10px;
-    border-radius: 6px;
-  }
-
-  .product__caption {
     gap: 6px;
     margin-top: 8px;
     padding-top: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
   }
 
   .stage-play-btn {
     padding: 4px 10px;
-    font-size: 0.62rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
     gap: 6px;
   }
 
@@ -1396,12 +1423,79 @@ p {
   }
 
   .stage-play-btn__text {
-    font-size: 0.62rem;
+    font-size: 0.64rem;
+    letter-spacing: 0.06em;
   }
 
   .product__caption-text {
-    font-size: 0.56rem;
+    font-size: 0.58rem;
     letter-spacing: 0.05em;
+    line-height: 1.35;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --pad: 12px;
+  }
+
+  .hero .showcase {
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+    max-width: calc(100% + 16px);
+    padding: 4px 2px 7px;
+    margin-top: 20px;
+    border-radius: 6px;
+  }
+
+  .showcase__caption {
+    font-size: 0.54rem;
+    letter-spacing: 0.05em;
+    gap: 2px;
+    margin-top: 6px;
+  }
+
+  .product__stage,
+  body.page-dark .product__stage {
+    margin-left: -8px;
+    margin-right: -8px;
+    width: calc(100% + 16px);
+    max-width: calc(100% + 16px);
+    padding: 4px 2px 7px;
+    border-radius: 6px;
+  }
+
+  .product__caption {
+    gap: 5px;
+    margin-top: 6px;
+    padding-top: 6px;
+  }
+
+  .stage-play-btn {
+    padding: 3px 9px;
+    font-size: 0.6rem;
+    gap: 5px;
+  }
+
+  .stage-play-btn__icon {
+    width: 15px;
+    height: 15px;
+  }
+
+  .stage-play-btn__icon svg {
+    width: 7px;
+    height: 7px;
+  }
+
+  .stage-play-btn__text {
+    font-size: 0.6rem;
+  }
+
+  .product__caption-text {
+    font-size: 0.54rem;
+    letter-spacing: 0.04em;
   }
 }
 
