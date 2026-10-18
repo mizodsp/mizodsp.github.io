@@ -583,24 +583,12 @@
 
     <!-- Form View -->
     <div class="download-modal__content" id="modalFormView">
-      <!-- OS Selection Tabs -->
-      <div class="modal-os-tabs">
-        <button type="button" class="modal-os-tab is-active" id="modalTabWin" onclick="switchModalPlatform('Windows')">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.751"/></svg>
-          Windows
-        </button>
-        <button type="button" class="modal-os-tab" id="modalTabMac" onclick="switchModalPlatform('macOS')">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.08 1.73-.95 2.76 1.01.08 2.05-.51 2.68-1.26z"/></svg>
-          macOS
-        </button>
-      </div>
-
       <div class="download-modal__header">
         <div class="download-modal__badge" id="modalPlatformBadge">
           <span id="modalPlatformText">Windows (VST3, VST, AAX, CLAP)</span>
         </div>
-        <h3 class="download-modal__title" id="modalTitle">Get ABVox Free</h3>
-        <p class="download-modal__subtitle">Enter your details below to download ABVox Signature Vocal Chain.</p>
+        <h3 class="download-modal__title" id="modalTitle">Download ABVox for Windows</h3>
+        <p class="download-modal__subtitle">Enter your name and email to download ABVox Signature Vocal Chain.</p>
       </div>
 
       <form class="download-modal__form" id="downloadForm" action="https://api.web3forms.com/submit" method="POST">
@@ -641,14 +629,14 @@
       </div>
       <h3 class="download-modal__title">Your Download Has Started!</h3>
       <p class="download-modal__subtitle" style="margin-bottom: 20px;">
-        Thank you for downloading ABVox. Direct download links for both platforms:
+        Thank you for downloading ABVox. If your download doesn't begin automatically, or to download another platform, use the direct links below:
       </p>
       <div class="download-modal__actions" style="display: flex; flex-direction: column; gap: 10px;">
-        <a class="btn btn--solid" href="https://github.com/mizodsp/mizodsp.github.io/releases/download/v1.0.0/ABVox_v1.0.0_Windows.zip" download style="background:var(--accent); color:#ffffff; border-color:var(--accent); justify-content:center; display:flex; align-items:center; gap:8px;">
+        <a class="btn btn--solid modal-dl-link" href="https://github.com/mizodsp/mizodsp.github.io/releases/download/v1.0.0/ABVox_v1.0.0_Windows.zip" download="ABVox_v1.0.0_Windows.zip" style="background:var(--accent); color:#ffffff; border-color:var(--accent); justify-content:center; display:flex; align-items:center; gap:8px;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.751"/></svg>
           Download for Windows (ZIP)
         </a>
-        <a class="btn btn--solid" href="https://github.com/mizodsp/mizodsp.github.io/releases/download/v1.0.0/ABVox_v1.0.0_macOS.zip" download style="background:rgba(255, 255, 255, 0.08); color:#ffffff; border:1px solid rgba(255, 255, 255, 0.2); justify-content:center; display:flex; align-items:center; gap:8px;">
+        <a class="btn btn--solid modal-dl-link" href="https://github.com/mizodsp/mizodsp.github.io/releases/download/v1.0.0/ABVox_v1.0.0_macOS.zip" download="ABVox_v1.0.0_macOS.zip" style="background:rgba(255, 255, 255, 0.08); color:#ffffff; border:1px solid rgba(255, 255, 255, 0.2); justify-content:center; display:flex; align-items:center; gap:8px;">
           <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.08 1.73-.95 2.76 1.01.08 2.05-.51 2.68-1.26z"/></svg>
           Download for macOS (ZIP)
         </a>
@@ -664,43 +652,35 @@
   var currentDownloadUrl = WIN_DOWNLOAD_URL;
   var currentPlatform = 'Windows';
 
-  window.switchModalPlatform = function (platform, url) {
-    currentPlatform = platform || 'Windows';
-    currentDownloadUrl = url || (currentPlatform === 'macOS' ? MAC_DOWNLOAD_URL : WIN_DOWNLOAD_URL);
-
-    var tabWin = document.getElementById('modalTabWin');
-    var tabMac = document.getElementById('modalTabMac');
-    var badgeText = document.getElementById('modalPlatformText');
-    var submitBtnText = document.getElementById('modalSubmitBtnText');
-    var platformInput = document.getElementById('formPlatform');
-    var subjectInput = document.getElementById('formSubject');
-
-    if (platformInput) platformInput.value = currentPlatform;
-    if (subjectInput) subjectInput.value = 'New ABVox Free Download (' + currentPlatform + ')';
-
-    if (currentPlatform === 'Windows') {
-      if (tabWin) tabWin.classList.add('is-active');
-      if (tabMac) tabMac.classList.remove('is-active');
-      if (badgeText) badgeText.textContent = 'Windows (VST3, VST, AAX, CLAP)';
-      if (submitBtnText) submitBtnText.textContent = 'Download for Windows (Free)';
-    } else {
-      if (tabWin) tabWin.classList.remove('is-active');
-      if (tabMac) tabMac.classList.add('is-active');
-      if (badgeText) badgeText.textContent = 'macOS (VST3, AU, AAX, CLAP)';
-      if (submitBtnText) submitBtnText.textContent = 'Download for macOS (Free)';
-    }
-  };
-
   window.openDownloadModal = function (platform, url) {
     var modal = document.getElementById('downloadModal');
     if (!modal) return;
 
-    window.switchModalPlatform(platform || 'Windows', url);
+    currentPlatform = platform || 'Windows';
+    currentDownloadUrl = url || (currentPlatform === 'macOS' ? MAC_DOWNLOAD_URL : WIN_DOWNLOAD_URL);
 
+    var badgeText = document.getElementById('modalPlatformText');
+    var modalTitle = document.getElementById('modalTitle');
+    var submitBtnText = document.getElementById('modalSubmitBtnText');
+    var platformInput = document.getElementById('formPlatform');
+    var subjectInput = document.getElementById('formSubject');
     var formView = document.getElementById('modalFormView');
     var successView = document.getElementById('modalSuccessView');
     var submitBtn = document.getElementById('modalSubmitBtn');
     var nameInput = document.getElementById('formName');
+
+    if (platformInput) platformInput.value = currentPlatform;
+    if (subjectInput) subjectInput.value = 'New ABVox Free Download (' + currentPlatform + ')';
+
+    if (currentPlatform === 'macOS') {
+      if (badgeText) badgeText.textContent = 'macOS (VST3, AU, AAX, CLAP)';
+      if (modalTitle) modalTitle.textContent = 'Download ABVox for macOS';
+      if (submitBtnText) submitBtnText.textContent = 'Download for macOS (Free)';
+    } else {
+      if (badgeText) badgeText.textContent = 'Windows (VST3, VST, AAX, CLAP)';
+      if (modalTitle) modalTitle.textContent = 'Download ABVox for Windows';
+      if (submitBtnText) submitBtnText.textContent = 'Download for Windows (Free)';
+    }
 
     if (formView) formView.style.display = 'block';
     if (successView) successView.style.display = 'none';
@@ -732,13 +712,18 @@
     }
   });
 
-  // Global event delegation for any links pointing to zip files or with js-download-trigger
+  // Global event delegation ONLY for download triggers (never intercept direct download links!)
   document.addEventListener('click', function (e) {
-    var trigger = e.target.closest('.js-download-trigger, .btn--download, a[href*=".zip"]');
+    // If clicking a direct download link on the success screen, let the browser download naturally!
+    if (e.target.closest('.modal-dl-link, .download-modal__success')) {
+      return;
+    }
+
+    var trigger = e.target.closest('.js-download-trigger');
     if (trigger) {
       e.preventDefault();
       e.stopPropagation();
-      var platform = trigger.getAttribute('data-platform') || (trigger.href.indexOf('macOS') !== -1 ? 'macOS' : 'Windows');
+      var platform = trigger.getAttribute('data-platform') || (trigger.href && trigger.href.indexOf('macOS') !== -1 ? 'macOS' : 'Windows');
       var url = trigger.getAttribute('href');
       window.openDownloadModal(platform, url);
     }
@@ -746,14 +731,25 @@
 
   function triggerDirectFileDownload(url) {
     if (!url) return;
+    // 1. Programmatic anchor click
     var a = document.createElement('a');
     a.href = url;
     a.setAttribute('download', '');
+    a.style.display = 'none';
     document.body.appendChild(a);
     a.click();
     setTimeout(function () {
       if (a.parentNode) a.parentNode.removeChild(a);
-    }, 1000);
+    }, 1500);
+
+    // 2. Hidden iframe fallback
+    var iframe = document.createElement('iframe');
+    iframe.style.display = 'none';
+    iframe.src = url;
+    document.body.appendChild(iframe);
+    setTimeout(function () {
+      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
+    }, 30000);
   }
 
   // Handle Form Submission
@@ -770,6 +766,14 @@
       if (submitBtn) submitBtn.disabled = true;
       if (submitBtnText) submitBtnText.textContent = 'Starting Download...';
 
+      // Start automatic file download IMMEDIATELY within the trusted user submit gesture!
+      triggerDirectFileDownload(currentDownloadUrl);
+
+      // Flip immediately to success screen showing direct links for both platforms
+      if (formView) formView.style.display = 'none';
+      if (successView) successView.style.display = 'block';
+
+      // Send form data asynchronously to Web3Forms in background
       var formData = new FormData(form);
       var object = Object.fromEntries(formData);
       var json = JSON.stringify(object);
@@ -782,21 +786,11 @@
         },
         body: json
       })
-      .then(function (response) {
-        return response.json().catch(function () { return { success: true }; });
-      })
       .catch(function (err) {
         console.warn('Web3Forms notice:', err);
-      })
-      .finally(function () {
-        // Trigger download
-        triggerDirectFileDownload(currentDownloadUrl);
-
-        // Show success screen
-        if (formView) formView.style.display = 'none';
-        if (successView) successView.style.display = 'block';
-        form.reset();
       });
+
+      form.reset();
     });
   }
 </script>
