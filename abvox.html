@@ -33,7 +33,7 @@
 <meta name="twitter:image" content="https://mizodsp.github.io/assets/og-preview.png" />
 
 <script>document.documentElement.classList.add('js');</script>
-<link rel="stylesheet" href="styles.css?v=5" />
+<link rel="stylesheet" href="styles.css?v=6" />
 </head>
 <body class="page-dark">
 
@@ -108,7 +108,7 @@
           </p>
         </div>
 
-        <aside class="product__aside" id="get">
+        <aside class="product__aside" id="get" style="scroll-margin-top: 90px;">
           <dl>
             <div>
               <dt>Price</dt>
@@ -323,6 +323,26 @@
       toggle.setAttribute('aria-expanded', String(open));
     });
   }
+
+  // Handle smooth scroll to anchor when navigated with a hash (e.g. abvox.html#get)
+  function handleHashScroll() {
+    if (window.location.hash) {
+      try {
+        var target = document.querySelector(window.location.hash);
+        if (target) {
+          setTimeout(function () {
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 80);
+        }
+      } catch (e) {}
+    }
+  }
+  if (document.readyState === 'complete') {
+    handleHashScroll();
+  } else {
+    window.addEventListener('load', handleHashScroll);
+  }
+  window.addEventListener('hashchange', handleHashScroll);
 
   // Click-to-play / toggle product video in abvox.html
   var playProductBtn = document.getElementById('playProductVideoBtn');
