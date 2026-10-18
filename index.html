@@ -72,7 +72,7 @@
 
       <div class="hero__actions">
         <a class="btn btn--light" href="abvox.html">Explore ABVox <span class="arrow">→</span></a>
-        <a class="btn btn--outline-light" href="abvox.html#get">Free Download</a>
+        <a class="btn btn--outline-light js-download-trigger" href="abvox.html#get" onclick="openDownloadModal('Windows'); return false;">Free Download</a>
       </div>
 
       <div class="hero__meta">
@@ -320,6 +320,479 @@
       els.forEach(function (el) { el.classList.add('is-visible'); });
     }, 2500);
   })();
+</script>
+
+<!-- DOWNLOAD EMAIL MODAL STYLES (Inline to bypass any browser cache) -->
+<style>
+.download-modal {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  z-index: 9999999 !important;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  box-sizing: border-box;
+}
+
+.download-modal.is-open {
+  display: flex !important;
+}
+
+.download-modal__backdrop {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: rgba(8, 8, 11, 0.88) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  cursor: pointer;
+}
+
+.download-modal__dialog {
+  position: relative !important;
+  z-index: 10 !important;
+  width: 100% !important;
+  max-width: 480px !important;
+  background: #14151a !important;
+  background: linear-gradient(180deg, #181920 0%, #111216 100%) !important;
+  border: 1px solid rgba(176, 125, 36, 0.4) !important;
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.9), 0 0 40px rgba(176, 125, 36, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 32px 28px !important;
+  color: #f5f4f1 !important;
+  box-sizing: border-box !important;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.download-modal__close {
+  position: absolute !important;
+  top: 16px !important;
+  right: 16px !important;
+  width: 36px !important;
+  height: 36px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 50% !important;
+  color: #ffffff !important;
+  cursor: pointer !important;
+  font-size: 18px !important;
+  line-height: 1 !important;
+  transition: all 0.2s ease !important;
+}
+
+.download-modal__close:hover {
+  background: rgba(255, 255, 255, 0.2) !important;
+  transform: scale(1.08) !important;
+}
+
+.modal-os-tabs {
+  display: flex !important;
+  gap: 8px !important;
+  background: rgba(255, 255, 255, 0.04) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 8px !important;
+  padding: 4px !important;
+  margin-bottom: 16px !important;
+}
+
+.modal-os-tab {
+  flex: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 6px !important;
+  padding: 8px 12px !important;
+  background: transparent !important;
+  border: none !important;
+  border-radius: 6px !important;
+  color: rgba(255, 255, 255, 0.65) !important;
+  font-size: 0.88rem !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+}
+
+.modal-os-tab:hover {
+  color: #ffffff !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+}
+
+.modal-os-tab.is-active {
+  background: #b07d24 !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(176, 125, 36, 0.35) !important;
+}
+
+.download-modal__badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 6px !important;
+  background: rgba(176, 125, 36, 0.16) !important;
+  border: 1px solid rgba(176, 125, 36, 0.4) !important;
+  color: #dfaa47 !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.03em !important;
+  padding: 4px 10px !important;
+  border-radius: 4px !important;
+  margin-bottom: 12px !important;
+}
+
+.download-modal__title {
+  font-size: 1.55rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  margin: 0 0 8px 0 !important;
+  line-height: 1.2 !important;
+}
+
+.download-modal__subtitle {
+  color: rgba(255, 255, 255, 0.72) !important;
+  font-size: 0.92rem !important;
+  line-height: 1.5 !important;
+  margin: 0 0 18px 0 !important;
+}
+
+.download-modal__form {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 16px !important;
+}
+
+.download-modal .form-group {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 6px !important;
+  text-align: left !important;
+}
+
+.download-modal .form-label {
+  font-size: 0.86rem !important;
+  font-weight: 500 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  margin: 0 !important;
+}
+
+.download-modal .form-input {
+  width: 100% !important;
+  padding: 12px 14px !important;
+  background: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border-radius: 6px !important;
+  color: #ffffff !important;
+  font-size: 0.95rem !important;
+  box-sizing: border-box !important;
+}
+
+.download-modal .form-input:focus {
+  outline: none !important;
+  border-color: #b07d24 !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 0 0 3px rgba(176, 125, 36, 0.3) !important;
+}
+
+.btn--modal-submit {
+  width: 100% !important;
+  margin-top: 6px !important;
+  padding: 13px 20px !important;
+  background: #b07d24 !important;
+  color: #ffffff !important;
+  border: 1px solid #b07d24 !important;
+  font-weight: 600 !important;
+  font-size: 1rem !important;
+  justify-content: center !important;
+  border-radius: 6px !important;
+  cursor: pointer !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 8px !important;
+  box-sizing: border-box !important;
+  transition: all 0.2s ease !important;
+}
+
+.btn--modal-submit:hover:not(:disabled) {
+  background: #c59132 !important;
+  border-color: #c59132 !important;
+  box-shadow: 0 4px 18px rgba(176, 125, 36, 0.5) !important;
+}
+
+.btn--modal-submit:disabled {
+  opacity: 0.75 !important;
+  cursor: wait !important;
+}
+
+.download-modal__note {
+  font-size: 0.78rem !important;
+  color: rgba(255, 255, 255, 0.5) !important;
+  text-align: center !important;
+  margin: 4px 0 0 0 !important;
+}
+
+.download-modal__success {
+  text-align: center !important;
+  padding: 12px 0 8px !important;
+}
+
+.download-modal__success .success-icon {
+  margin: 0 auto 16px !important;
+  width: 58px !important;
+  height: 58px !important;
+  background: rgba(176, 125, 36, 0.16) !important;
+  border: 1px solid rgba(176, 125, 36, 0.4) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.download-modal__actions {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 10px !important;
+  margin-top: 24px !important;
+}
+
+@media (max-width: 540px) {
+  .download-modal__dialog {
+    padding: 24px 18px !important;
+  }
+  .download-modal__title {
+    font-size: 1.35rem !important;
+  }
+}
+</style>
+
+<!-- DOWNLOAD EMAIL MODAL -->
+<div class="download-modal" id="downloadModal" style="display:none;" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+  <div class="download-modal__backdrop" id="modalBackdrop" onclick="closeDownloadModal()"></div>
+  <div class="download-modal__dialog">
+    <button class="download-modal__close" id="modalCloseBtn" onclick="closeDownloadModal()" type="button" aria-label="Close download modal">✕</button>
+
+    <!-- Form View -->
+    <div class="download-modal__content" id="modalFormView">
+      <!-- OS Selection Tabs -->
+      <div class="modal-os-tabs">
+        <button type="button" class="modal-os-tab is-active" id="modalTabWin" onclick="switchModalPlatform('Windows')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.751"/></svg>
+          Windows
+        </button>
+        <button type="button" class="modal-os-tab" id="modalTabMac" onclick="switchModalPlatform('macOS')">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.08 1.73-.95 2.76 1.01.08 2.05-.51 2.68-1.26z"/></svg>
+          macOS
+        </button>
+      </div>
+
+      <div class="download-modal__header">
+        <div class="download-modal__badge" id="modalPlatformBadge">
+          <span id="modalPlatformText">Windows (VST3, VST, AAX, CLAP)</span>
+        </div>
+        <h3 class="download-modal__title" id="modalTitle">Get ABVox Free</h3>
+        <p class="download-modal__subtitle">Enter your details below to download ABVox Signature Vocal Chain.</p>
+      </div>
+
+      <form class="download-modal__form" id="downloadForm" action="https://formsubmit.app/f/pkw368cwfg" method="POST">
+        <!-- Anti-spam Honeypot -->
+        <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" aria-hidden="true" />
+
+        <!-- Metadata fields -->
+        <input type="hidden" name="platform" id="formPlatform" value="Windows" />
+        <input type="hidden" name="_subject" id="formSubject" value="New ABVox Free Download (Windows)" />
+
+        <div class="form-group">
+          <label for="formName" class="form-label">First Name</label>
+          <input type="text" id="formName" name="name" class="form-input" placeholder="e.g. Andrew" required autocomplete="given-name" />
+        </div>
+
+        <div class="form-group">
+          <label for="formEmail" class="form-label">Email Address</label>
+          <input type="email" id="formEmail" name="email" class="form-input" placeholder="you@studio.com" required autocomplete="email" />
+        </div>
+
+        <button type="submit" class="btn btn--solid btn--modal-submit" id="modalSubmitBtn">
+          <span id="modalSubmitBtnText">Download for Windows (Free)</span>
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/></svg>
+        </button>
+
+        <p class="download-modal__note">
+          🔒 100% Free · No spam, ever. Only product updates.
+        </p>
+      </form>
+    </div>
+
+    <!-- Success View -->
+    <div class="download-modal__success" id="modalSuccessView" style="display:none;">
+      <div class="success-icon">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#b07d24" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+      </div>
+      <h3 class="download-modal__title">Your Download Has Started!</h3>
+      <p class="download-modal__subtitle" id="modalSuccessMessage">
+        Thank you for downloading ABVox. If your download doesn't begin automatically, click the direct download link below.
+      </p>
+      <div class="download-modal__actions">
+        <a class="btn btn--solid" id="modalDirectLink" href="#" download style="background:var(--accent); color:#fff; border-color:var(--accent); justify-content:center;">Direct Download Link</a>
+        <button type="button" class="btn btn--outline-light" id="modalDoneBtn" onclick="closeDownloadModal()" style="justify-content:center;">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Bulletproof Global Modal Handlers
+  var WIN_DOWNLOAD_URL = 'https://github.com/mizodsp/mizodsp.github.io/releases/download/v1.0.0/ABVox_v1.0.0_Windows.zip';
+  var MAC_DOWNLOAD_URL = 'https://github.com/mizodsp/mizodsp.github.io/releases/download/v1.0.0/ABVox_v1.0.0_macOS.zip';
+  var currentDownloadUrl = WIN_DOWNLOAD_URL;
+  var currentPlatform = 'Windows';
+
+  window.switchModalPlatform = function (platform, url) {
+    currentPlatform = platform || 'Windows';
+    currentDownloadUrl = url || (currentPlatform === 'macOS' ? MAC_DOWNLOAD_URL : WIN_DOWNLOAD_URL);
+
+    var tabWin = document.getElementById('modalTabWin');
+    var tabMac = document.getElementById('modalTabMac');
+    var badgeText = document.getElementById('modalPlatformText');
+    var submitBtnText = document.getElementById('modalSubmitBtnText');
+    var platformInput = document.getElementById('formPlatform');
+    var subjectInput = document.getElementById('formSubject');
+    var directLink = document.getElementById('modalDirectLink');
+
+    if (platformInput) platformInput.value = currentPlatform;
+    if (subjectInput) subjectInput.value = 'New ABVox Free Download (' + currentPlatform + ')';
+    if (directLink) {
+      directLink.href = currentDownloadUrl;
+      directLink.textContent = 'Direct Download for ' + currentPlatform;
+    }
+
+    if (currentPlatform === 'Windows') {
+      if (tabWin) tabWin.classList.add('is-active');
+      if (tabMac) tabMac.classList.remove('is-active');
+      if (badgeText) badgeText.textContent = 'Windows (VST3, VST, AAX, CLAP)';
+      if (submitBtnText) submitBtnText.textContent = 'Download for Windows (Free)';
+    } else {
+      if (tabWin) tabWin.classList.remove('is-active');
+      if (tabMac) tabMac.classList.add('is-active');
+      if (badgeText) badgeText.textContent = 'macOS (VST3, AU, AAX, CLAP)';
+      if (submitBtnText) submitBtnText.textContent = 'Download for macOS (Free)';
+    }
+  };
+
+  window.openDownloadModal = function (platform, url) {
+    var modal = document.getElementById('downloadModal');
+    if (!modal) return;
+
+    window.switchModalPlatform(platform || 'Windows', url);
+
+    var formView = document.getElementById('modalFormView');
+    var successView = document.getElementById('modalSuccessView');
+    var submitBtn = document.getElementById('modalSubmitBtn');
+    var nameInput = document.getElementById('formName');
+
+    if (formView) formView.style.display = 'block';
+    if (successView) successView.style.display = 'none';
+    if (submitBtn) submitBtn.disabled = false;
+
+    modal.style.display = 'flex';
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    setTimeout(function () {
+      if (nameInput) nameInput.focus();
+    }, 100);
+  };
+
+  window.closeDownloadModal = function () {
+    var modal = document.getElementById('downloadModal');
+    if (!modal) return;
+    modal.style.display = 'none';
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  };
+
+  // Close on Escape key
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') {
+      window.closeDownloadModal();
+    }
+  });
+
+  // Global event delegation for any links pointing to zip files or with js-download-trigger
+  document.addEventListener('click', function (e) {
+    var trigger = e.target.closest('.js-download-trigger, .btn--download, a[href*=".zip"]');
+    if (trigger) {
+      e.preventDefault();
+      e.stopPropagation();
+      var platform = trigger.getAttribute('data-platform') || (trigger.href.indexOf('macOS') !== -1 ? 'macOS' : 'Windows');
+      var url = trigger.getAttribute('href');
+      window.openDownloadModal(platform, url);
+    }
+  });
+
+  function triggerDirectFileDownload(url) {
+    if (!url) return;
+    var a = document.createElement('a');
+    a.href = url;
+    a.setAttribute('download', '');
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(function () {
+      if (a.parentNode) a.parentNode.removeChild(a);
+    }, 1000);
+  }
+
+  // Handle Form Submission
+  var form = document.getElementById('downloadForm');
+  if (form) {
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      var submitBtn = document.getElementById('modalSubmitBtn');
+      var submitBtnText = document.getElementById('modalSubmitBtnText');
+      var formView = document.getElementById('modalFormView');
+      var successView = document.getElementById('modalSuccessView');
+
+      if (submitBtn) submitBtn.disabled = true;
+      if (submitBtnText) submitBtnText.textContent = 'Starting Download...';
+
+      var formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        headers: {
+          'Accept': 'application/json'
+        },
+        body: formData
+      })
+      .then(function (response) {
+        return response.json().catch(function () { return { ok: true }; });
+      })
+      .catch(function (err) {
+        console.warn('FormSubmit network notice:', err);
+      })
+      .finally(function () {
+        // Trigger download
+        triggerDirectFileDownload(currentDownloadUrl);
+
+        // Show success screen
+        if (formView) formView.style.display = 'none';
+        if (successView) successView.style.display = 'block';
+        form.reset();
+      });
+    });
+  }
 </script>
 
 </body>
