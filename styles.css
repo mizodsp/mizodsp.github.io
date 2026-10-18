@@ -2210,3 +2210,224 @@ body.page-dark .feature-module-card__title {
 body.page-dark .feature-module-card__desc {
   color: rgba(255, 255, 255, 0.74);
 }
+
+/* ==========================================================================
+   Download Email Modal
+   ========================================================================== */
+.download-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.download-modal.is-open {
+  visibility: visible;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.download-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 8, 11, 0.84);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.download-modal__dialog {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  background: linear-gradient(180deg, #181920 0%, #111216 100%);
+  border: 1px solid rgba(176, 125, 36, 0.35);
+  box-shadow: 
+    0 24px 60px rgba(0, 0, 0, 0.88),
+    0 0 35px rgba(176, 125, 36, 0.12);
+  border-radius: 12px;
+  padding: 32px 30px;
+  color: #f5f4f1;
+  transform: translateY(14px) scale(0.97);
+  transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.download-modal.is-open .download-modal__dialog {
+  transform: translateY(0) scale(1);
+}
+
+.download-modal__close {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  width: 36px;
+  height: 36px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.download-modal__close:hover {
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  transform: scale(1.05);
+}
+
+.download-modal__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(176, 125, 36, 0.15);
+  border: 1px solid rgba(176, 125, 36, 0.35);
+  color: #dfaa47;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 14px;
+}
+
+.download-modal__title {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.download-modal__subtitle {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.92rem;
+  line-height: 1.5;
+  margin-bottom: 22px;
+}
+
+.download-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.download-modal .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: left;
+}
+
+.download-modal .form-label {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.88);
+}
+
+.download-modal .form-input {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.download-modal .form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 0 0 3px rgba(176, 125, 36, 0.25);
+}
+
+.download-modal .form-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.btn--modal-submit {
+  width: 100%;
+  margin-top: 6px;
+  padding: 13px 20px;
+  background: var(--accent) !important;
+  color: #ffffff !important;
+  border: 1px solid var(--accent) !important;
+  font-weight: 600;
+  font-size: 0.98rem;
+  justify-content: center;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.btn--modal-submit:hover:not(:disabled) {
+  background: var(--accent-hover) !important;
+  border-color: var(--accent-hover) !important;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(176, 125, 36, 0.45);
+}
+
+.btn--modal-submit:disabled {
+  opacity: 0.75;
+  cursor: wait;
+}
+
+.download-modal__note {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.48);
+  text-align: center;
+  margin-top: 4px;
+}
+
+.download-modal__success {
+  text-align: center;
+  padding: 12px 0 8px;
+}
+
+.download-modal__success .success-icon {
+  margin: 0 auto 16px;
+  width: 58px;
+  height: 58px;
+  background: rgba(176, 125, 36, 0.14);
+  border: 1px solid rgba(176, 125, 36, 0.35);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.download-modal__actions {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 24px;
+}
+
+@media (max-width: 540px) {
+  .download-modal {
+    padding: 14px;
+  }
+  .download-modal__dialog {
+    padding: 24px 18px;
+  }
+  .download-modal__title {
+    font-size: 1.35rem;
+  }
+}
