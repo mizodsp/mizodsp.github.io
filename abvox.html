@@ -720,9 +720,12 @@
   var currentDownloadUrl = WIN_DOWNLOAD_URL;
   var currentPlatform = 'Windows';
 
+  var isSubmitting = false;
+
   window.openDownloadModal = function (platform, url) {
     var modal = document.getElementById('downloadModal');
     if (!modal) return;
+    isSubmitting = false;
 
     currentPlatform = platform || 'Windows';
     currentDownloadUrl = url || (currentPlatform === 'macOS' ? MAC_DOWNLOAD_URL : WIN_DOWNLOAD_URL);
@@ -799,7 +802,6 @@
 
   function triggerDirectFileDownload(url) {
     if (!url) return;
-    // 1. Programmatic anchor click
     var a = document.createElement('a');
     a.href = url;
     a.setAttribute('download', '');
@@ -808,16 +810,7 @@
     a.click();
     setTimeout(function () {
       if (a.parentNode) a.parentNode.removeChild(a);
-    }, 1500);
-
-    // 2. Hidden iframe fallback
-    var iframe = document.createElement('iframe');
-    iframe.style.display = 'none';
-    iframe.src = url;
-    document.body.appendChild(iframe);
-    setTimeout(function () {
-      if (iframe.parentNode) iframe.parentNode.removeChild(iframe);
-    }, 30000);
+    }, 1000);
   }
 
   // Handle Form Submission
@@ -825,6 +818,8 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+      if (isSubmitting) return;
+      isSubmitting = true;
 
       var submitBtn = document.getElementById('modalSubmitBtn');
       var submitBtnText = document.getElementById('modalSubmitBtnText');
@@ -834,7 +829,7 @@
       if (submitBtn) submitBtn.disabled = true;
       if (submitBtnText) submitBtnText.textContent = 'Starting Download...';
 
-      // Start automatic file download IMMEDIATELY within the trusted user submit gesture!
+      // Start automatic file download exactly ONCE within user gesture
       triggerDirectFileDownload(currentDownloadUrl);
 
       // Flip immediately to success screen showing direct links for both platforms
