@@ -33,7 +33,7 @@
 <meta name="twitter:image" content="https://mizodsp.github.io/assets/og-preview.png" />
 
 <script>document.documentElement.classList.add('js');</script>
-<link rel="stylesheet" href="styles.css?v=4" />
+<link rel="stylesheet" href="styles.css?v=5" />
 </head>
 <body class="page-dark">
 
@@ -388,136 +388,6 @@
       els.forEach(function (el) { el.classList.add('is-visible'); });
     }, 2500);
   })();
-
-  // Download Modal Logic
-  (function () {
-    var modal = document.getElementById('downloadModal');
-    var backdrop = document.getElementById('modalBackdrop');
-    var closeBtn = document.getElementById('modalCloseBtn');
-    var formView = document.getElementById('modalFormView');
-    var successView = document.getElementById('modalSuccessView');
-    var form = document.getElementById('downloadForm');
-    var submitBtn = document.getElementById('modalSubmitBtn');
-    var submitBtnText = document.getElementById('modalSubmitBtnText');
-    var platformBadgeText = document.getElementById('modalPlatformText');
-    var platformIcon = document.getElementById('modalPlatformIcon');
-    var platformInput = document.getElementById('formPlatform');
-    var subjectInput = document.getElementById('formSubject');
-    var directLink = document.getElementById('modalDirectLink');
-    var doneBtn = document.getElementById('modalDoneBtn');
-    var nameInput = document.getElementById('formName');
-
-    var currentDownloadUrl = '';
-    var currentPlatform = 'Windows';
-
-    var winSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.751"/></svg>';
-    var macSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.08 1.73-.95 2.76 1.01.08 2.05-.51 2.68-1.26z"/></svg>';
-
-    function openModal(platform, url) {
-      currentPlatform = platform;
-      currentDownloadUrl = url;
-      platformInput.value = platform;
-      subjectInput.value = 'New ABVox Free Download (' + platform + ')';
-      directLink.href = url;
-      directLink.textContent = 'Direct Download for ' + platform;
-
-      if (platform === 'Windows') {
-        platformIcon.innerHTML = winSvg;
-        platformBadgeText.textContent = 'Windows (VST3, VST, AAX, CLAP)';
-        submitBtnText.textContent = 'Download for Windows (Free)';
-      } else {
-        platformIcon.innerHTML = macSvg;
-        platformBadgeText.textContent = 'macOS (VST3, AU, AAX, CLAP)';
-        submitBtnText.textContent = 'Download for macOS (Free)';
-      }
-
-      formView.style.display = 'block';
-      successView.style.display = 'none';
-      submitBtn.disabled = false;
-
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.style.overflow = 'hidden';
-
-      setTimeout(function () {
-        if (nameInput) nameInput.focus();
-      }, 120);
-    }
-
-    function closeModal() {
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.style.overflow = '';
-    }
-
-    // Attach to all download triggers
-    var triggers = document.querySelectorAll('.js-download-trigger');
-    triggers.forEach(function (btn) {
-      btn.addEventListener('click', function (e) {
-        e.preventDefault();
-        var platform = btn.getAttribute('data-platform') || 'Windows';
-        var url = btn.getAttribute('href');
-        openModal(platform, url);
-      });
-    });
-
-    if (backdrop) backdrop.addEventListener('click', closeModal);
-    if (closeBtn) closeBtn.addEventListener('click', closeModal);
-    if (doneBtn) doneBtn.addEventListener('click', closeModal);
-
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && modal.classList.contains('is-open')) {
-        closeModal();
-      }
-    });
-
-    function triggerFileDownload(url) {
-      var a = document.createElement('a');
-      a.href = url;
-      a.setAttribute('download', '');
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function () {
-        if (a.parentNode) a.parentNode.removeChild(a);
-      }, 1000);
-    }
-
-    // Form submission
-    if (form) {
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        submitBtn.disabled = true;
-        submitBtnText.textContent = 'Starting Download...';
-
-        var formData = new FormData(form);
-
-        // Submit to FormSubmit asynchronously
-        fetch(form.action, {
-          method: 'POST',
-          headers: {
-            'Accept': 'application/json'
-          },
-          body: formData
-        })
-        .then(function (response) {
-          return response.json().catch(function () { return { ok: true }; });
-        })
-        .catch(function (err) {
-          console.warn('FormSubmit network notice:', err);
-        })
-        .finally(function () {
-          // Always trigger file download
-          triggerFileDownload(currentDownloadUrl);
-
-          // Show success view
-          formView.style.display = 'none';
-          successView.style.display = 'block';
-          form.reset();
-        });
-      });
-    }
-  })();
 </script>
 
 <!-- DOWNLOAD EMAIL MODAL -->
@@ -584,6 +454,151 @@
     </div>
   </div>
 </div>
+
+<script>
+  // Download Modal Logic
+  (function initDownloadModal() {
+    function setup() {
+      var modal = document.getElementById('downloadModal');
+      var backdrop = document.getElementById('modalBackdrop');
+      var closeBtn = document.getElementById('modalCloseBtn');
+      var formView = document.getElementById('modalFormView');
+      var successView = document.getElementById('modalSuccessView');
+      var form = document.getElementById('downloadForm');
+      var submitBtn = document.getElementById('modalSubmitBtn');
+      var submitBtnText = document.getElementById('modalSubmitBtnText');
+      var platformBadgeText = document.getElementById('modalPlatformText');
+      var platformIcon = document.getElementById('modalPlatformIcon');
+      var platformInput = document.getElementById('formPlatform');
+      var subjectInput = document.getElementById('formSubject');
+      var directLink = document.getElementById('modalDirectLink');
+      var doneBtn = document.getElementById('modalDoneBtn');
+      var nameInput = document.getElementById('formName');
+
+      if (!modal) return;
+
+      var currentDownloadUrl = '';
+      var currentPlatform = 'Windows';
+
+      var winSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.751"/></svg>';
+      var macSvg = '<svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" style="vertical-align: -2px; margin-right: 4px;" aria-hidden="true"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.37c.62-.75 1.04-1.8 0.92-2.85-.9.04-2 .6-2.65 1.35-.58.66-1.08 1.73-.95 2.76 1.01.08 2.05-.51 2.68-1.26z"/></svg>';
+
+      function openModal(platform, url) {
+        currentPlatform = platform;
+        currentDownloadUrl = url;
+        if (platformInput) platformInput.value = platform;
+        if (subjectInput) subjectInput.value = 'New ABVox Free Download (' + platform + ')';
+        if (directLink) {
+          directLink.href = url;
+          directLink.textContent = 'Direct Download for ' + platform;
+        }
+
+        if (platform === 'Windows') {
+          if (platformIcon) platformIcon.innerHTML = winSvg;
+          if (platformBadgeText) platformBadgeText.textContent = 'Windows (VST3, VST, AAX, CLAP)';
+          if (submitBtnText) submitBtnText.textContent = 'Download for Windows (Free)';
+        } else {
+          if (platformIcon) platformIcon.innerHTML = macSvg;
+          if (platformBadgeText) platformBadgeText.textContent = 'macOS (VST3, AU, AAX, CLAP)';
+          if (submitBtnText) submitBtnText.textContent = 'Download for macOS (Free)';
+        }
+
+        if (formView) formView.style.display = 'block';
+        if (successView) successView.style.display = 'none';
+        if (submitBtn) submitBtn.disabled = false;
+
+        modal.classList.add('is-open');
+        modal.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+
+        setTimeout(function () {
+          if (nameInput) nameInput.focus();
+        }, 120);
+      }
+
+      function closeModal() {
+        modal.classList.remove('is-open');
+        modal.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      }
+
+      // Attach to all download triggers
+      var triggers = document.querySelectorAll('.js-download-trigger');
+      triggers.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          var platform = btn.getAttribute('data-platform') || 'Windows';
+          var url = btn.getAttribute('href');
+          openModal(platform, url);
+        });
+      });
+
+      if (backdrop) backdrop.addEventListener('click', closeModal);
+      if (closeBtn) closeBtn.addEventListener('click', closeModal);
+      if (doneBtn) doneBtn.addEventListener('click', closeModal);
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+          closeModal();
+        }
+      });
+
+      function triggerFileDownload(url) {
+        if (!url) return;
+        var a = document.createElement('a');
+        a.href = url;
+        a.setAttribute('download', '');
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+          if (a.parentNode) a.parentNode.removeChild(a);
+        }, 1000);
+      }
+
+      // Form submission
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+
+          if (submitBtn) submitBtn.disabled = true;
+          if (submitBtnText) submitBtnText.textContent = 'Starting Download...';
+
+          var formData = new FormData(form);
+
+          // Submit to FormSubmit asynchronously
+          fetch(form.action, {
+            method: 'POST',
+            headers: {
+              'Accept': 'application/json'
+            },
+            body: formData
+          })
+          .then(function (response) {
+            return response.json().catch(function () { return { ok: true }; });
+          })
+          .catch(function (err) {
+            console.warn('FormSubmit network notice:', err);
+          })
+          .finally(function () {
+            // Always trigger file download
+            triggerFileDownload(currentDownloadUrl);
+
+            // Show success view
+            if (formView) formView.style.display = 'none';
+            if (successView) successView.style.display = 'block';
+            form.reset();
+          });
+        });
+      }
+    }
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', setup);
+    } else {
+      setup();
+    }
+  })();
+</script>
 
 </body>
 </html>
