@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Stem Separator — AI Stem Separation, Offline | MizoDSP</title>
+<meta name="description" content="Stem Separator splits any song into vocals, drums, bass and instruments with a state-of-the-art AI model. Runs 100% offline on Windows. Free from MizoDSP." />
+<meta name="theme-color" content="#0b0b0e" />
+<link rel="icon" href="favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="favicon.ico" sizes="any" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+<!-- Open Graph / Social Sharing -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://mizodsp.github.io/stem-separator.html" />
+<meta property="og:title" content="Stem Separator — AI Stem Separation, Offline | MizoDSP" />
+<meta property="og:description" content="Split any song into vocals, drums, bass and instruments with a state-of-the-art AI model. Runs 100% offline on Windows." />
+<meta property="og:image" content="https://mizodsp.github.io/assets/StemSeparator_UI_og.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Stem Separator app interface — drag and drop audio, choose stems, quality and format" />
+<meta property="og:site_name" content="MizoDSP" />
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Stem Separator — AI Stem Separation, Offline | MizoDSP" />
+<meta name="twitter:description" content="Split any song into four clean stems with a state-of-the-art AI model. Runs entirely on your own computer." />
+<meta name="twitter:image" content="https://mizodsp.github.io/assets/StemSeparator_UI_og.png" />
+<meta name="twitter:image:alt" content="Stem Separator app interface — drag and drop audio, choose stems, quality and format" />
+
+<script>document.documentElement.classList.add('js');</script>
+<link rel="stylesheet" href="styles.css?v=8" />
+</head>
+<body class="page-dark page-stem">
+
+<a class="skip-link btn btn--solid" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap site-header__inner">
+    <a class="brand" href="index.html" aria-label="MizoDSP home">
+      <img class="brand__logo-img" src="assets/MizoDSP logo.png" alt="MizoDSP Logo" width="1505" height="660" />
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="abvox.html">ABVox</a>
+      <a href="stem-separator.html" aria-current="page">Stem Separator</a>
+      <a href="#demo">Stem Demo</a>
+    </nav>
+
+    <div class="site-header__cta">
+      <a class="btn btn--accent" href="#download"><span class="stem-cta-full">Get Stem Separator</span><span class="stem-cta-short">Download</span></a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="nav">Menu</button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+  <div class="wrap crumbs">
+    <a href="index.html">Home</a><span>/</span>
+    <a href="stem-separator.html">Stem Separator</a><span>/</span>
+    App
+  </div>
+
+  <!-- PRODUCT HERO -->
+  <section class="product">
+    <div class="wrap">
+      <div class="badges">
+        <span class="badge badge--accent">State-of-the-art AI model</span>
+        <span class="badge">Runs 100% offline</span>
+        <span class="badge">Windows 10/11</span>
+        <span class="badge">Free</span>
+      </div>
+
+      <figure class="product__stage reveal">
+        <div class="product__render-box">
+          <img class="product__render-img" src="assets/StemSeparator_UI.png"
+               alt="Stem Separator at launch: an empty drag-and-drop file queue on the left, and stem, quality, format and output folder options on the right."
+               width="1245" height="795" fetchpriority="high" />
+        </div>
+        <figcaption class="product__caption">
+          <span class="product__caption-text">Stem Separator · App interface</span>
+        </figcaption>
+      </figure>
+
+      <div class="product__head">
+        <div>
+          <div class="stem-hero__brand">
+            <img class="stem-hero__icon" src="assets/StemSeparator_icon.png" alt="" width="1024" height="1024" aria-hidden="true" />
+            <div>
+              <h1 class="product__title">Stem Separator</h1>
+              <p class="product__sub">MizoDSP · AI Stem Separation</p>
+            </div>
+          </div>
+          <p class="product__tagline">
+            Turn any song into four clean stems — vocals, drums, bass and instruments — with a
+            state-of-the-art AI separation model that runs entirely on your own computer.
+          </p>
+        </div>
+
+        <aside class="product__aside" id="download" style="scroll-margin-top: 90px;">
+          <dl>
+            <div>
+              <dt>Price</dt>
+              <dd><strong class="stem-price">Free</strong></dd>
+            </div>
+            <div>
+              <dt>Stems</dt>
+              <dd>Vocals · Drums · Bass · Instrumental</dd>
+            </div>
+            <div>
+              <dt>Output</dt>
+              <dd>WAV · FLAC · MP3 320 · M4A · OGG</dd>
+            </div>
+            <div>
+              <dt>Platforms</dt>
+              <dd>Windows 10/11</dd>
+            </div>
+          </dl>
+
+          <div class="download-actions" style="margin-top: 24px; display: grid; gap: 10px;">
+            <span class="btn btn--soon" aria-disabled="true">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.401H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.951-1.751"/></svg>
+              <span>Windows installer — coming soon</span>
+            </span>
+          </div>
+          <p class="stem-coming">
+            The native Windows installer is being finalized. It will be posted here.
+          </p>
+        </aside>
+      </div>
+
+      <ul class="checks">
+        <li><strong>State-of-the-art AI model:</strong> a fine-tuned hybrid transformer model that pulls clean, natural-sounding stems out of any mix.</li>
+        <li><strong>100% offline &amp; private:</strong> separation runs on your own CPU. No uploads, no cloud queue, no account.</li>
+        <li><strong>Four stems or the instrumental:</strong> vocals, drums, bass and other — or an instant karaoke-ready instrumental mix.</li>
+        <li><strong>Drag, drop, done:</strong> batch queue, quality presets and WAV, FLAC, MP3, M4A or OGG output.</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- STEM DEMO -->
+  <section class="section section--demo" id="demo">
+    <div class="wrap">
+      <div class="section__head reveal">
+        <p class="eyebrow eyebrow--accent">Hear the model</p>
+        <h2 class="section__title">Audition the stems yourself.</h2>
+        <p class="lede">
+          Press play, then mute or solo a track to hear exactly what the AI model pulled out.
+          The preview loops, so you can take your time.
+        </p>
+      </div>
+
+      <div class="stem-player reveal" id="stemPlayer" data-state="idle">
+        <div class="stem-player__toolbar">
+          <button class="stem-play" id="stemPlay" type="button" aria-label="Play stem demo">
+            <svg class="stem-play__icon stem-play__icon--play" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5v14l11-7z"/></svg>
+            <svg class="stem-play__icon stem-play__icon--pause" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"/><rect x="14" y="5" width="4" height="14" rx="1"/></svg>
+          </button>
+
+          <div class="stem-player__title">
+            <span class="stem-player__label">Stem preview</span>
+            <span class="stem-player__hint">Mute or solo a track to hear the separation</span>
+          </div>
+
+          <span class="stem-player__time" id="stemTime">0:00 / 0:19</span>
+        </div>
+
+        <div class="stem-tracks" role="group" aria-label="Stem tracks">
+
+          <div class="stem-track" data-stem="vocals" data-color="#e6b45a">
+            <div class="stem-track__meta">
+              <span class="stem-track__dot" aria-hidden="true"></span>
+              <span class="stem-track__name">Vocals</span>
+              <button class="stem-toggle" type="button" data-action="mute" aria-pressed="false" aria-label="Mute vocals" title="Mute vocals">M</button>
+              <button class="stem-toggle" type="button" data-action="solo" aria-pressed="false" aria-label="Solo vocals" title="Solo vocals">S</button>
+            </div>
+            <div class="stem-track__wave">
+              <canvas aria-hidden="true"></canvas>
+              <span class="stem-track__playhead" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="stem-track" data-stem="drums" data-color="#7fb3dd">
+            <div class="stem-track__meta">
+              <span class="stem-track__dot" aria-hidden="true"></span>
+              <span class="stem-track__name">Drums</span>
+              <button class="stem-toggle" type="button" data-action="mute" aria-pressed="false" aria-label="Mute drums" title="Mute drums">M</button>
+              <button class="stem-toggle" type="button" data-action="solo" aria-pressed="false" aria-label="Solo drums" title="Solo drums">S</button>
+            </div>
+            <div class="stem-track__wave">
+              <canvas aria-hidden="true"></canvas>
+              <span class="stem-track__playhead" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="stem-track" data-stem="bass" data-color="#a99be8">
+            <div class="stem-track__meta">
+              <span class="stem-track__dot" aria-hidden="true"></span>
+              <span class="stem-track__name">Bass</span>
+              <button class="stem-toggle" type="button" data-action="mute" aria-pressed="false" aria-label="Mute bass" title="Mute bass">M</button>
+              <button class="stem-toggle" type="button" data-action="solo" aria-pressed="false" aria-label="Solo bass" title="Solo bass">S</button>
+            </div>
+            <div class="stem-track__wave">
+              <canvas aria-hidden="true"></canvas>
+              <span class="stem-track__playhead" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="stem-track" data-stem="others" data-color="#6fc9b4">
+            <div class="stem-track__meta">
+              <span class="stem-track__dot" aria-hidden="true"></span>
+              <span class="stem-track__name">Other</span>
+              <button class="stem-toggle" type="button" data-action="mute" aria-pressed="false" aria-label="Mute other instruments" title="Mute other instruments">M</button>
+              <button class="stem-toggle" type="button" data-action="solo" aria-pressed="false" aria-label="Solo other instruments" title="Solo other instruments">S</button>
+            </div>
+            <div class="stem-track__wave">
+              <canvas aria-hidden="true"></canvas>
+              <span class="stem-track__playhead" aria-hidden="true"></span>
+            </div>
+          </div>
+
+        </div>
+
+        <p class="stem-player__status" id="stemStatus" aria-live="polite">Four stems · 1.9 MB</p>
+      </div>
+
+      <noscript>
+        <p class="stem-noscript">The interactive stem player needs JavaScript. Separation was done offline by Stem Separator.</p>
+      </noscript>
+    </div>
+  </section>
+
+  <!-- FORMATS STRIP -->
+  <section class="wrap" id="formats">
+    <div class="formats">
+      <span><strong>4 Stems</strong></span>
+      <span><strong>100% Offline</strong></span>
+      <span><strong>WAV · FLAC · MP3 · M4A · OGG</strong></span>
+      <span><strong>Windows 10/11</strong></span>
+      <span><strong>CPU-Only</strong></span>
+      <span><strong>Free</strong></span>
+    </div>
+  </section>
+
+  <!-- GET STEM SEPARATOR -->
+  <section class="section section--cta-wrap">
+    <div class="wrap">
+      <div class="cta reveal">
+        <div>
+          <p class="eyebrow eyebrow--accent">Get Stem Separator</p>
+          <h2>AI stem separation, on your own machine.</h2>
+          <p>
+            The Windows installer is being finalized. The stem preview above was made with
+            the same model that ships in the app.
+          </p>
+        </div>
+        <div class="cta__actions">
+          <span class="btn btn--light is-disabled" aria-disabled="true">Windows — coming soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="site-footer__grid">
+      <div class="site-footer__about">
+        <a class="brand" href="index.html" aria-label="MizoDSP home">
+          <img class="footer__logo-img" src="assets/MizoDSP logo.png" alt="MizoDSP Logo" />
+        </a>
+        <p>
+          Pioneering audio software innovation from Mizoram, creating professional tools for sound enthusiasts and music producers worldwide.
+        </p>
+      </div>
+
+      <div>
+        <h4>Products</h4>
+        <ul>
+          <li><a href="abvox.html">ABVox Vocal Chain</a></li>
+          <li><a href="stem-separator.html">Stem Separator</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>This Page</h4>
+        <ul>
+          <li><a href="#demo">Hear the Stems</a></li>
+          <li><a href="#formats">Formats &amp; Platforms</a></li>
+          <li><a href="#download">Download</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="site-footer__bar">
+      <span>© <span id="year">2026</span> MizoDSP. All rights reserved. Mizoram's First Audio Software Company.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('nav');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('nav--open');
+      toggle.setAttribute('aria-expanded', String(open));
+    });
+  }
+
+  // Reveal on scroll
+  (function () {
+    var els = document.querySelectorAll('.reveal');
+    if (!('IntersectionObserver' in window) ||
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('is-visible');
+          io.unobserve(e.target);
+        }
+      });
+    }, { rootMargin: '0px 0px -10% 0px', threshold: 0.08 });
+    els.forEach(function (el) { io.observe(el); });
+
+    window.setTimeout(function () {
+      els.forEach(function (el) { el.classList.add('is-visible'); });
+    }, 2500);
+  })();
+
+  // ---------------------------------------------------------------------
+  // Stem player — four sources scheduled on one AudioContext clock so the
+  // stems stay sample-locked. Mute/solo are per-stem gain nodes.
+  // ---------------------------------------------------------------------
+  (function () {
+    var player = document.getElementById('stemPlayer');
+    if (!player) return;
+
+    var STEMS = [
+      { key: 'vocals', file: 'assets/SeperatedStems/vocals.ogg' },
+      { key: 'drums',  file: 'assets/SeperatedStems/drums.ogg' },
+      { key: 'bass',   file: 'assets/SeperatedStems/bass.ogg' },
+      { key: 'others', file: 'assets/SeperatedStems/others.ogg' }
+    ];
+
+    var playBtn = document.getElementById('stemPlay');
+    var timeEl = document.getElementById('stemTime');
+    var statusEl = document.getElementById('stemStatus');
+
+    var rows = {};
+    STEMS.forEach(function (s) {
+      var el = player.querySelector('.stem-track[data-stem="' + s.key + '"]');
+      rows[s.key] = {
+        el: el,
+        canvas: el.querySelector('canvas'),
+        playhead: el.querySelector('.stem-track__playhead'),
+        mute: el.querySelector('[data-action="mute"]'),
+        solo: el.querySelector('[data-action="solo"]'),
+        color: el.getAttribute('data-color') || '#8fb7dc',
+        gain: null,
+        width: 0
+      };
+    });
+
+    var ctx = null;
+    var master = null;
+    var buffers = null;
+    var loadPromise = null;
+    var sources = [];
+    var muted = {};
+    var soloed = {};
+    var peaks = null;
+    var duration = 19.17;
+    var startAt = 0;
+    var state = 'idle';
+    var raf = 0;
+
+    function fmt(sec) {
+      sec = Math.max(0, Math.min(duration, sec));
+      var m = Math.floor(sec / 60);
+      var s = Math.floor(sec % 60);
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function setState(next) {
+      state = next;
+      player.setAttribute('data-state', next);
+      playBtn.setAttribute('aria-label',
+        next === 'playing' ? 'Pause stem demo' : 'Play stem demo');
+    }
+
+    function setStatus(text) {
+      statusEl.textContent = text;
+    }
+
+    // ---------- waveform preview (drawn from precomputed peaks) ----------
+    function drawWave(key) {
+      if (!peaks || !peaks[key]) return;
+      var row = rows[key];
+      var canvas = row.canvas;
+      var box = canvas.parentNode;
+      var rect = box.getBoundingClientRect();
+      var dpr = Math.min(window.devicePixelRatio || 1, 2);
+      var w = Math.max(1, Math.round(rect.width));
+      var h = Math.max(1, Math.round(rect.height));
+
+      canvas.width = Math.round(w * dpr);
+      canvas.height = Math.round(h * dpr);
+
+      var c = canvas.getContext('2d');
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.clearRect(0, 0, w, h);
+
+      var data = peaks[key];
+      var bar = 2;
+      var step = bar + 1;
+      var count = Math.max(1, Math.floor(w / step));
+      var mid = h / 2;
+      var amp = h / 2 - 3;
+
+      c.fillStyle = row.color;
+      for (var i = 0; i < count; i++) {
+        var idx = Math.min(data.length - 1, Math.floor(i / count * data.length));
+        var lo = data[idx][0] / 127;
+        var hi = data[idx][1] / 127;
+        var top = mid - hi * amp;
+        var bottom = mid - lo * amp;
+        c.fillRect(i * step, top, bar, Math.max(1, bottom - top));
+      }
+
+      row.width = w;
+    }
+
+    function drawAll() {
+      STEMS.forEach(function (s) { drawWave(s.key); });
+      updatePlayheads(duration ? elapsed() % duration : 0);
+    }
+
+    var resizeTimer = 0;
+    window.addEventListener('resize', function () {
+      window.clearTimeout(resizeTimer);
+      resizeTimer = window.setTimeout(drawAll, 140);
+    });
+
+    fetch('assets/SeperatedStems/peaks.json')
+      .then(function (r) { return r.ok ? r.json() : null; })
+      .then(function (data) {
+        if (!data) return;
+        peaks = data.peaks;
+        if (data.duration) duration = data.duration;
+        drawAll();
+        timeEl.textContent = '0:00 / ' + fmt(duration);
+      })
+      .catch(function () { /* waveforms are decorative; audio still works */ });
+
+    // ---------- audio ----------
+    function initAudio() {
+      if (ctx) return ctx;
+      var AC = window.AudioContext || window.webkitAudioContext;
+      if (!AC) return null;
+      ctx = new AC();
+      master = ctx.createGain();
+      master.gain.value = 0.8;
+      master.connect(ctx.destination);
+      STEMS.forEach(function (s) {
+        var g = ctx.createGain();
+        g.gain.value = 1;
+        g.connect(master);
+        rows[s.key].gain = g;
+      });
+      return ctx;
+    }
+
+    function ensureContext() {
+      if (!initAudio()) return Promise.reject(new Error('Web Audio is not supported'));
+      return ctx.state === 'suspended' ? ctx.resume() : Promise.resolve();
+    }
+
+    function loadStems() {
+      if (buffers) return Promise.resolve(buffers);
+      if (loadPromise) return loadPromise;
+      if (!initAudio()) return Promise.reject(new Error('Web Audio is not supported'));
+
+      loadPromise = Promise.all(STEMS.map(function (s) {
+        return fetch(s.file)
+          .then(function (r) {
+            if (!r.ok) throw new Error('HTTP ' + r.status);
+            return r.arrayBuffer();
+          })
+          .then(function (buf) { return ctx.decodeAudioData(buf); });
+      })).then(function (decoded) {
+        buffers = decoded;
+        // Loop over the shortest stem so every stem restarts on the same tick.
+        duration = decoded.reduce(function (shortest, b) {
+          return Math.min(shortest, b.duration);
+        }, Infinity);
+        loadPromise = null;
+        return buffers;
+      }, function (err) {
+        loadPromise = null;
+        throw err;
+      });
+
+      return loadPromise;
+    }
+
+    function preloadStems() {
+      if (buffers || loadPromise) return;
+      if (!initAudio()) return;
+      loadStems().catch(function () { /* quiet — play will retry */ });
+    }
+
+    function schedulePreload() {
+      if (buffers || loadPromise) return;
+      if ('requestIdleCallback' in window) {
+        window.requestIdleCallback(preloadStems, { timeout: 1500 });
+      } else {
+        window.setTimeout(preloadStems, 600);
+      }
+    }
+
+    if (document.readyState === 'complete') schedulePreload();
+    else window.addEventListener('load', schedulePreload, { once: true });
+
+    function buildSources() {
+      var t0 = ctx.currentTime + 0.08;
+      sources = STEMS.map(function (s, i) {
+        var src = ctx.createBufferSource();
+        src.buffer = buffers[i];
+        // One shared loop window keeps the four stems sample-locked forever.
+        src.loop = true;
+        src.loopStart = 0;
+        src.loopEnd = duration;
+        src.connect(rows[s.key].gain);
+        src.start(t0);
+        return src;
+      });
+      startAt = t0;
+    }
+
+    function stopSources() {
+      sources.forEach(function (src) {
+        try { src.stop(); } catch (e) { /* already stopped */ }
+        try { src.disconnect(); } catch (e) { /* ignore */ }
+      });
+      sources = [];
+    }
+
+    function elapsed() {
+      if (!ctx || !sources.length) return 0;
+      return Math.max(0, ctx.currentTime - startAt);
+    }
+
+    function updatePlayheads(t) {
+      var ratio = duration ? Math.min(1, t / duration) : 0;
+      STEMS.forEach(function (s) {
+        var row = rows[s.key];
+        if (!row.width) return;
+        row.playhead.style.transform = 'translateX(' + (ratio * row.width) + 'px)';
+        row.playhead.style.opacity = ratio > 0.0005 ? '1' : '0';
+      });
+    }
+
+    function updateTime(t) {
+      timeEl.textContent = fmt(t) + ' / ' + fmt(duration);
+    }
+
+    function tick() {
+      window.cancelAnimationFrame(raf);
+      if (state !== 'playing') return;
+      var t = elapsed();
+      var loopT = duration ? t % duration : 0;
+      updatePlayheads(loopT);
+      updateTime(loopT);
+      raf = window.requestAnimationFrame(tick);
+    }
+
+    function applyMix() {
+      var anySolo = STEMS.some(function (s) { return soloed[s.key]; });
+      STEMS.forEach(function (s) {
+        var row = rows[s.key];
+        var audible = !muted[s.key] && (!anySolo || soloed[s.key]);
+        if (ctx && row.gain) {
+          row.gain.gain.setTargetAtTime(audible ? 1 : 0, ctx.currentTime, 0.012);
+        }
+        row.el.classList.toggle('is-muted', !!muted[s.key]);
+        row.el.classList.toggle('is-not-soloed', anySolo && !soloed[s.key] && !muted[s.key]);
+      });
+    }
+
+    STEMS.forEach(function (s) {
+      var row = rows[s.key];
+      row.mute.addEventListener('click', function () {
+        muted[s.key] = !muted[s.key];
+        row.mute.setAttribute('aria-pressed', muted[s.key] ? 'true' : 'false');
+        applyMix();
+      });
+      row.solo.addEventListener('click', function () {
+        soloed[s.key] = !soloed[s.key];
+        row.solo.setAttribute('aria-pressed', soloed[s.key] ? 'true' : 'false');
+        applyMix();
+      });
+    });
+
+    function startPlayback() {
+      buildSources();
+      applyMix();
+      setState('playing');
+      setStatus('Playing · four stems, looping');
+      tick();
+    }
+
+    function playbackFailed(err) {
+      playBtn.disabled = false;
+      setState('idle');
+      setStatus('Could not load the preview (' + (err && err.message || 'decode error') +
+        '). Try Chrome, Edge or Firefox.');
+    }
+
+    playBtn.addEventListener('click', function () {
+      if (state === 'loading') return;
+
+      if (state === 'playing') {
+        ctx.suspend();
+        setState('paused');
+        setStatus('Paused');
+        return;
+      }
+
+      if (state === 'paused') {
+        ctx.resume();
+        setState('playing');
+        setStatus('Playing · four stems, looping');
+        tick();
+        return;
+      }
+
+      if (buffers) {
+        playBtn.disabled = true;
+        ensureContext()
+          .then(function () {
+            playBtn.disabled = false;
+            startPlayback();
+          })
+          .catch(playbackFailed);
+        return;
+      }
+
+      setState('loading');
+      playBtn.disabled = true;
+      setStatus(loadPromise ? 'Getting the stems ready…' : 'Loading four stems…');
+      ensureContext()
+        .then(loadStems)
+        .then(function () {
+          playBtn.disabled = false;
+          startPlayback();
+        })
+        .catch(playbackFailed);
+    });
+  })();
+</script>
+
+</body>
+</html>
