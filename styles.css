@@ -2681,6 +2681,8 @@ body.page-stem .section--demo > .wrap {
 .stem-track[data-stem="vocals"] { --track-color: #e6b45a; }
 .stem-track[data-stem="drums"]  { --track-color: #7fb3dd; }
 .stem-track[data-stem="bass"]   { --track-color: #a99be8; }
+.stem-track[data-stem="guitar"] { --track-color: #e2885f; }
+.stem-track[data-stem="piano"]  { --track-color: #d98fb0; }
 .stem-track[data-stem="others"] { --track-color: #6fc9b4; }
 
 .stem-track__meta {

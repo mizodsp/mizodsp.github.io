@@ -26,7 +26,7 @@
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Stem Separator — AI Stem Separation, Offline | MizoDSP" />
-<meta name="twitter:description" content="Split any song into four clean stems with a state-of-the-art AI model. Runs entirely on your own computer." />
+<meta name="twitter:description" content="Split any song into six clean stems with a state-of-the-art AI model. Runs entirely on your own computer." />
 <meta name="twitter:image" content="https://mizodsp.github.io/assets/StemSeparator_UI_og.png" />
 <meta name="twitter:image:alt" content="Stem Separator app interface — drag and drop audio, choose stems, quality and format" />
 
@@ -96,8 +96,8 @@
             </div>
           </div>
           <p class="product__tagline">
-            Turn any song into four clean stems — vocals, drums, bass and instruments — with a
-            state-of-the-art AI separation model that runs entirely on your own computer.
+            Turn any song into six clean stems — vocals, drums, bass, guitars, pianos and everything
+            else — with a state-of-the-art AI separation model that runs entirely on your own computer.
           </p>
         </div>
 
@@ -109,7 +109,7 @@
             </div>
             <div>
               <dt>Stems</dt>
-              <dd>Vocals · Drums · Bass · Instrumental</dd>
+              <dd>Vocals · Drums · Bass · Guitars · Pianos · Other</dd>
             </div>
             <div>
               <dt>Output</dt>
@@ -136,7 +136,7 @@
       <ul class="checks">
         <li><strong>State-of-the-art AI model:</strong> a fine-tuned hybrid transformer model that pulls clean, natural-sounding stems out of any mix.</li>
         <li><strong>100% offline &amp; private:</strong> separation runs on your own CPU. No uploads, no cloud queue, no account.</li>
-        <li><strong>Four stems or the instrumental:</strong> vocals, drums, bass and other — or an instant karaoke-ready instrumental mix.</li>
+        <li><strong>Six stems or the instrumental:</strong> vocals, drums, bass, guitars, pianos and other — or an instant karaoke-ready instrumental mix.</li>
         <li><strong>Drag, drop, done:</strong> batch queue, quality presets and WAV, FLAC, MP3, M4A or OGG output.</li>
       </ul>
     </div>
@@ -166,7 +166,7 @@
             <span class="stem-player__hint">Mute or solo a track to hear the separation</span>
           </div>
 
-          <span class="stem-player__time" id="stemTime">0:00 / 0:19</span>
+          <span class="stem-player__time" id="stemTime">0:00 / 0:22</span>
         </div>
 
         <div class="stem-tracks" role="group" aria-label="Stem tracks">
@@ -210,6 +210,32 @@
             </div>
           </div>
 
+          <div class="stem-track" data-stem="guitar" data-color="#e2885f">
+            <div class="stem-track__meta">
+              <span class="stem-track__dot" aria-hidden="true"></span>
+              <span class="stem-track__name">Guitars</span>
+              <button class="stem-toggle" type="button" data-action="mute" aria-pressed="false" aria-label="Mute guitars" title="Mute guitars">M</button>
+              <button class="stem-toggle" type="button" data-action="solo" aria-pressed="false" aria-label="Solo guitars" title="Solo guitars">S</button>
+            </div>
+            <div class="stem-track__wave">
+              <canvas aria-hidden="true"></canvas>
+              <span class="stem-track__playhead" aria-hidden="true"></span>
+            </div>
+          </div>
+
+          <div class="stem-track" data-stem="piano" data-color="#d98fb0">
+            <div class="stem-track__meta">
+              <span class="stem-track__dot" aria-hidden="true"></span>
+              <span class="stem-track__name">Pianos</span>
+              <button class="stem-toggle" type="button" data-action="mute" aria-pressed="false" aria-label="Mute pianos" title="Mute pianos">M</button>
+              <button class="stem-toggle" type="button" data-action="solo" aria-pressed="false" aria-label="Solo pianos" title="Solo pianos">S</button>
+            </div>
+            <div class="stem-track__wave">
+              <canvas aria-hidden="true"></canvas>
+              <span class="stem-track__playhead" aria-hidden="true"></span>
+            </div>
+          </div>
+
           <div class="stem-track" data-stem="others" data-color="#6fc9b4">
             <div class="stem-track__meta">
               <span class="stem-track__dot" aria-hidden="true"></span>
@@ -225,7 +251,7 @@
 
         </div>
 
-        <p class="stem-player__status" id="stemStatus" aria-live="polite">Four stems · 1.9 MB</p>
+        <p class="stem-player__status" id="stemStatus" aria-live="polite">Six stems · 2.9 MB</p>
       </div>
 
       <noscript>
@@ -237,7 +263,7 @@
   <!-- FORMATS STRIP -->
   <section class="wrap" id="formats">
     <div class="formats">
-      <span><strong>4 Stems</strong></span>
+      <span><strong>6 Stems</strong></span>
       <span><strong>100% Offline</strong></span>
       <span><strong>WAV · FLAC · MP3 · M4A · OGG</strong></span>
       <span><strong>Windows 10/11</strong></span>
@@ -340,7 +366,7 @@
   })();
 
   // ---------------------------------------------------------------------
-  // Stem player — four sources scheduled on one AudioContext clock so the
+  // Stem player — six sources scheduled on one AudioContext clock so the
   // stems stay sample-locked. Mute/solo are per-stem gain nodes.
   // ---------------------------------------------------------------------
   (function () {
@@ -348,10 +374,12 @@
     if (!player) return;
 
     var STEMS = [
-      { key: 'vocals', file: 'assets/SeperatedStems/vocals.ogg' },
-      { key: 'drums',  file: 'assets/SeperatedStems/drums.ogg' },
-      { key: 'bass',   file: 'assets/SeperatedStems/bass.ogg' },
-      { key: 'others', file: 'assets/SeperatedStems/others.ogg' }
+      { key: 'vocals', file: 'assets/SeperatedStems/DROPNEW (vocals).ogg' },
+      { key: 'drums',  file: 'assets/SeperatedStems/DROPNEW (drums).ogg' },
+      { key: 'bass',   file: 'assets/SeperatedStems/DROPNEW (bass).ogg' },
+      { key: 'guitar', file: 'assets/SeperatedStems/DROPNEW (guitar).ogg' },
+      { key: 'piano',  file: 'assets/SeperatedStems/DROPNEW (piano).ogg' },
+      { key: 'others', file: 'assets/SeperatedStems/DROPNEW (others).ogg' }
     ];
 
     var playBtn = document.getElementById('stemPlay');
@@ -381,7 +409,7 @@
     var muted = {};
     var soloed = {};
     var peaks = null;
-    var duration = 19.17;
+    var duration = 21.798;
     var startAt = 0;
     var state = 'idle';
     var raf = 0;
@@ -538,7 +566,7 @@
       sources = STEMS.map(function (s, i) {
         var src = ctx.createBufferSource();
         src.buffer = buffers[i];
-        // One shared loop window keeps the four stems sample-locked forever.
+        // One shared loop window keeps the six stems sample-locked forever.
         src.loop = true;
         src.loopStart = 0;
         src.loopEnd = duration;
@@ -617,7 +645,7 @@
       buildSources();
       applyMix();
       setState('playing');
-      setStatus('Playing · four stems, looping');
+      setStatus('Playing · six stems, looping');
       tick();
     }
 
@@ -641,7 +669,7 @@
       if (state === 'paused') {
         ctx.resume();
         setState('playing');
-        setStatus('Playing · four stems, looping');
+        setStatus('Playing · six stems, looping');
         tick();
         return;
       }
@@ -659,7 +687,7 @@
 
       setState('loading');
       playBtn.disabled = true;
-      setStatus(loadPromise ? 'Getting the stems ready…' : 'Loading four stems…');
+      setStatus(loadPromise ? 'Getting the stems ready…' : 'Loading six stems…');
       ensureContext()
         .then(loadStems)
         .then(function () {
