@@ -166,7 +166,7 @@
             <span class="stem-player__hint">Mute or solo a track to hear the separation</span>
           </div>
 
-          <span class="stem-player__time" id="stemTime">0:00 / 0:22</span>
+          <span class="stem-player__time" id="stemTime">0:00 / 0:40</span>
         </div>
 
         <div class="stem-tracks" role="group" aria-label="Stem tracks">
@@ -251,7 +251,7 @@
 
         </div>
 
-        <p class="stem-player__status" id="stemStatus" aria-live="polite">Six stems · 2.9 MB</p>
+        <p class="stem-player__status" id="stemStatus" aria-live="polite">Six stems · 4.4 MB</p>
       </div>
 
       <noscript>
@@ -441,12 +441,12 @@
     if (!player) return;
 
     var STEMS = [
-      { key: 'vocals', file: 'assets/SeperatedStems/DROPNEW (vocals).ogg' },
-      { key: 'drums',  file: 'assets/SeperatedStems/DROPNEW (drums).ogg' },
-      { key: 'bass',   file: 'assets/SeperatedStems/DROPNEW (bass).ogg' },
-      { key: 'guitar', file: 'assets/SeperatedStems/DROPNEW (guitar).ogg' },
-      { key: 'piano',  file: 'assets/SeperatedStems/DROPNEW (piano).ogg' },
-      { key: 'others', file: 'assets/SeperatedStems/DROPNEW (others).ogg' }
+      { key: 'vocals', file: 'assets/SeperatedStems/vocals.ogg' },
+      { key: 'drums',  file: 'assets/SeperatedStems/drums.ogg' },
+      { key: 'bass',   file: 'assets/SeperatedStems/bass.ogg' },
+      { key: 'guitar', file: 'assets/SeperatedStems/guitar.ogg' },
+      { key: 'piano',  file: 'assets/SeperatedStems/piano.ogg' },
+      { key: 'others', file: 'assets/SeperatedStems/others.ogg' }
     ];
 
     var playBtn = document.getElementById('stemPlay');
@@ -476,7 +476,7 @@
     var muted = {};
     var soloed = {};
     var peaks = null;
-    var duration = 21.798;
+    var duration = 40.178;
     var startAt = 0;
     var state = 'idle';
     var raf = 0;
